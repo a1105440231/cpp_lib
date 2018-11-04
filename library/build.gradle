@@ -31,6 +31,11 @@ dependencies {
     androidTestImplementation rootProject.ext.dependencies["test_espresso"]
     implementation rootProject.ext.dependencies["appcompatv7"]
     implementation rootProject.ext.dependencies["kotlin_jdk"]
+    api rootProject.ext.dependencies["litepal"]
+    api rootProject.ext.dependencies["baserecyclerviewadapterhelper"]
+    api rootProject.ext.dependencies["arms"]
+
+
 }
 repositories {
     mavenCentral()

@@ -10,11 +10,9 @@ ext {
     ]
 
     def dependVersion = [
-            support    : "28.0.0",
-            greendao   : "2.0.0",
-            fastjson   : "1.2.7",
-            databinding: "3.1.2",
-            cpp_lib    : "0.4",
+            support: "28.0.0",
+            cpp_lib: "0.4",
+            arms   : "2.4.1"
 
     ]
 
@@ -27,6 +25,9 @@ ext {
             "cpp_lib"                      : "com.github.a1105440231:cpp_lib:${dependVersion.cpp_lib}",
             "appcompatv7"                  : "com.android.support:appcompat-v7:${dependVersion.support}",
             "constraint_lalyout"           : "com.android.support.constraint:constraint-layout:1.1.3",
+            "baserecyclerviewadapterhelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34",
+            "litepal"                      : "org.litepal.android:core:1.6.1",
+            "arms"                         : "me.jessyan:arms:${dependVersion.arms}",
 
 
 
@@ -39,9 +40,6 @@ ext {
             "design"                       : "com.android.support:design:${dependVersion.support}",
             "databinding:compiler"         : "com.android.databinding:compiler:${dependVersion.databinding}",
             "rxjava"                       : "io.reactivex.rxjava2:rxandroid:2.0.1",
-            /**
-             * 其他
-             */
             "okhttputils"                  : "com.zhy:okhttputils:2.6.2",
             "glide"                        : "com.github.bumptech.glide:glide:4.3.1",
             "recyclerviewheader2"          : "com.bartoszlipinski:recyclerviewheader2:2.0.1",
@@ -49,14 +47,12 @@ ext {
             "analytics"                    : "com.umeng.analytics:analytics:6.1.4",
             "mp3recorder"                  : "com.czt.mp3recorder:library:1.0.4",
             "statusbarutil"                : "com.jaeger.statusbarutil:library:1.4.0",
-            "baserecyclerviewadapterhelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34",
             "bottom_navigation_bar"        : "com.ashokvarma.android:bottom-navigation-bar:2.0.3",
             "permission"                   : "com.yanzhenjie:permission:2.0.0-rc11",
             "gson"                         : "com.google.code.gson:gson:2.8.2",
             "badgeview"                    : "q.rorbin:badgeview:1.1.0",
             "tray"                         : "net.grandcentrix.tray:tray:0.10.0",
             "shortcutbadger"               : "me.leolin:ShortcutBadger:1.1.18@aar",
-            "core"                         : "org.litepal.android:core:1.6.1",
             "umeng_social_api"             : "libs/umeng_social_api.jar",
             "umeng_social_net"             : "libs/umeng_social_net.jar",
     ]
