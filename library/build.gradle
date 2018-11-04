@@ -36,7 +36,6 @@ repositories {
     mavenCentral()
 }
 //上传库
-apply from: "https://raw.githubusercontent.com/xuexiangjys/XUtil/master/localRepositoryUpload.gradle"
+apply from: 'JitPackUpload.gradle'
 group='com.github.a1105440231'
-apply plugin: 'maven'
 

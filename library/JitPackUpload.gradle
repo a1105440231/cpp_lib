@@ -1,10 +1,18 @@
-apply plugin: 'com.github.dcendents.android-maven'
-
-// 指定group，com.github.<用户名>，这里我默认填写的是我的github账号，请换成你自己的。
-group='com.github.a1105440231'
-
-//---------------------------------------------
-
+/*
+ * Copyright (C) 2018 xuexiangjys(xuexiangjys@163.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 apply plugin: 'maven'
 
@@ -27,10 +35,10 @@ afterEvaluate { project ->
             from android.sourceSets.main.java.srcDirs
         }
 
-//        task javadoc(type: Javadoc) {
-//            source = android.sourceSets.main.java.srcDirs
-//            classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//        }
+        task javadoc(type: Javadoc) {
+            source = android.sourceSets.main.java.srcDirs
+            classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        }
     } else { // Java libraries
         task sourcesJar(type: Jar, dependsOn: classes) {
             classifier = 'sources'
@@ -38,13 +46,13 @@ afterEvaluate { project ->
         }
     }
 
-//    task javadocJar(type: Jar, dependsOn: javadoc) {
-//        classifier = 'javadoc'
-//        from javadoc.destinationDir
-//    }
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
 
     artifacts {
-//        archives javadocJar
+        archives javadocJar
         archives sourcesJar
     }
 
@@ -56,51 +64,21 @@ afterEvaluate { project ->
     }
 }
 
-//
-//// 指定编码
-//tasks.withType(JavaCompile) {
-//    options.encoding = "UTF-8"
-//}
-//
-//tasks.withType(Javadoc) {
-//    options.encoding = 'UTF-8'
-//}
-//
-//if (project.hasProperty("android")) { // Android libraries
-//    task sourcesJar(type: Jar) {
-//        classifier = 'sources'
-//        from android.sourceSets.main.java.srcDirs
-//    }
-//
-//    task javadoc(type: Javadoc) {
-//        failOnError  false
-//        source = android.sourceSets.main.java.srcDirs
-//        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//    }
-//} else { // Java libraries
-//    task sourcesJar(type: Jar, dependsOn: classes) {
-//        classifier = 'sources'
-//        from sourceSets.main.allSource
-//    }
-//}
-//
-//javadoc {
-//    options {
-//        encoding "UTF-8"
-//        charSet 'UTF-8'
-//        author true
-//        version true
-//        links "http://docs.oracle.com/javase/7/docs/api"
-//    }
-//}
-//
-//// 制作文档(Javadoc)
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
-//
-//artifacts {
-//    archives javadocJar
-//    archives sourcesJar
-//}
+/*
+ * *********************************************************
+ *
+ *   ./gradlew uploadArchives
+ *
+ * *********************************************************
+ *
+ *  1.在项目中新建gradle.properties文件，然后配置如下属性：
+ *
+ *  #上传构件的信息
+ *  GROUP=                            //组织名
+ *  POM_ARTIFACT_ID=                  //项目名
+ *  POM_VERSION=                     //版本名
+ *
+ *  compile 'GROUP:POM_ARTIFACT_ID:POM_VERSION'
+ *
+ *
+ */
